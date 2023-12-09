@@ -1,5 +1,4 @@
 import * as React from 'react';
-import Logo from '../../../assets/logo.png';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -19,7 +18,7 @@ import TocIcon from '@mui/icons-material/Toc';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import IndexDashboard from "./indexDashboard"
+import IndexDashboard from './indexDashboard';
 
 const drawerWidth = 240;
 
@@ -36,11 +35,9 @@ function Dashboard(props) {
       {/* website name and logo */}
       <ListItem disablePadding>
         <ListItemButton>
-          <ListItemIcon>
-            <mainLogo>
-              <img src={Logo} alt="logo" className="logomain" />
-            </mainLogo>
-          </ListItemIcon>
+          <mainLogo>
+            <img src="" alt="logo" className="logomain" />
+          </mainLogo>
           <ListItemText primary={'SMS'} />
         </ListItemButton>
       </ListItem>
@@ -172,7 +169,6 @@ function Dashboard(props) {
       >
         <Toolbar />
         <IndexDashboard />
-          
       </Box>
     </Box>
   );
