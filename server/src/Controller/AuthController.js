@@ -1,5 +1,6 @@
 import authModel from '../DB/Model/AuthModel.js';
 import jwt from 'jsonwebtoken';
+import bcrypt from 'bcryptjs';
 const createUser = async (req, res) => {
   try {
     const { email, password, phone, name } = req.body;
@@ -15,6 +16,8 @@ const createUser = async (req, res) => {
       password,
     });
 
+    const salt = await bcrypt.genSalt(10);
+    createNewUser.password = await bcrypt.hash(password, salt);
     const CreatedUser = await authModel
       .findById(createNewUser._id)
       .select('-password');

@@ -1,0 +1,46 @@
+.hero-section {
+  background-image: linear-gradient(
+    to left,
+    #004fc7,
+    #0065d7,
+    #007be5,
+    #0090f1,
+    #00a5fb
+  );
+  padding: 90px 0 70px 0;
+}
+.hero-content {
+  color: #fff;
+}
+.hero-content h1 {
+  font-size: 48px;
+  line-height: 1.4;
+}
+.hero-content p {
+  font-size: 18px;
+  padding: 10px 0;
+  line-height: 1.4;
+}
+.btn a {
+  background-image: linear-gradient(
+    to bottom,
+    #0052cd,
+    #0061cf,
+    #006ecf,
+    #007acc,
+    #0585c7
+  );
+  border-radius: 15px;
+  background-color: #0052c7;
+  background-size: 300px;
+  padding: 10px 18px;
+  background-repeat: no-repeat;
+  background-position: 0%;
+  -webkit-transition: all 300ms ease-in-out;
+  transition: all 300ms ease-in-out;
+  color: #fff;
+}
+.btn a:hover {
+  background-position: -200%;
+  transition: all 300ms ease-in-out;
+}
