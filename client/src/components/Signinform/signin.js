@@ -58,9 +58,9 @@ export default function SignIn() {
       .request(config)
       .then((response) => {
         console.log(response.data);
-        if (response.data.status == true) {
+        if (response.data.status === true) {
           navigate('/student');
-        } else if (response.data.msg == 'Wrong Password') {
+        } else if (response.data.msg === 'Wrong Password') {
         }
       })
       .catch((error) => {

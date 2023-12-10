@@ -1,5 +1,4 @@
 import * as React from 'react';
-import Logo from '../../../assets/logo.png';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -36,11 +35,6 @@ function Dashboard(props) {
       {/* website name and logo */}
       <ListItem disablePadding>
         <ListItemButton>
-          <ListItemIcon>
-            <mainLogo>
-              <img src={Logo} alt="logo" className="logomain" />
-            </mainLogo>
-          </ListItemIcon>
           <ListItemText primary={'SMS'} />
         </ListItemButton>
       </ListItem>

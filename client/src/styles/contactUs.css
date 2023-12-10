@@ -1,0 +1,36 @@
+.mainContainer {
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  color: rgb(5, 5, 5);
+  background: url(https://media-cldnry.s-nbcnews.com/image/upload/newscms/2018_44/2186121/171011-airplane-mn-1440.jpg) ;
+  background: linear-gradient(90deg, rgba(0,0,0,0.2) 0%, rgba(9,9,121,0.2) 49%, rgba(131,131,131,0.2) 100%);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+
+
+.belowHeading {
+  display: flex;
+}
+.belowHeading .partTwo {
+  flex-grow: 3;
+  text-align: center;
+  margin-top: 50px;
+}
+.belowHeading .partOne {
+  flex-grow: 2;
+}
+.belowHeading .partTwo input, textarea {
+  border-radius: 10px;
+  width: 70%;
+  margin: 10px;
+  border: none;
+  font-size: 16px;
+  padding: 10px;
+}
+.belowHeading .partTwo input:focus {
+  border: none;
+}
