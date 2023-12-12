@@ -2,7 +2,7 @@ import authModel from '../DB/Model/AuthModel.js';
 import jwt from 'jsonwebtoken';
 const createUser = async (req, res) => {
   try {
-    const { email, password, phone, name } = req.body;
+    const { email, password, phone, name ,userType} = req.body;
     const existingUser = await authModel.findOne({ email });
 
     if (existingUser) {
@@ -13,6 +13,7 @@ const createUser = async (req, res) => {
       email,
       phone,
       password,
+      userType
     });
 
     const CreatedUser = await authModel
@@ -69,10 +70,30 @@ const getProfile = async (req, res) => {
   }
 };
 
+const createCourse = async(req,res) => {
+  try {
+    const { courseId, Instructor, courseName, duration } = req.body;
+
+    const addCourse = await  {
+      courseId,
+      courseName,
+      Instructor,
+      duration
+    }
+
+  }
+  catch (err) {
+    console.log(err);
+    return res.send(err.message);
+  }
+}
+
+
 const AuthController = {
   createUser,
   login,
   getProfile,
+  createCourse
 };
 
 export default AuthController;

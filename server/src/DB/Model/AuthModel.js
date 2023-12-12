@@ -19,6 +19,10 @@ const AuthSchema = mongoose.Schema(
     },
     phone:{
         type:String
+    },
+    userType:{
+        type:String,
+        enum:["admin" , "teacher" , "student"]
     }
 },
 {
