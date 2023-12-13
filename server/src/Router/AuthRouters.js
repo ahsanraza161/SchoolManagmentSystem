@@ -7,4 +7,4 @@ export let AuthRouters = Router();
 AuthRouters.route("/createprofile").post(AuthController.createUser)
 AuthRouters.route("/login").post(AuthController.login)
 AuthRouters.route("/getprofile").get(AuthController.getProfile)
-AuthRouter.routte("/addcourses").post(AuthController.createCourse);
+// AuthRouter.routte("/addcourses").post(AuthController.createCourse);
