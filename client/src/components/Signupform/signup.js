@@ -12,6 +12,8 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 function Copyright(props) {
   return (
@@ -26,17 +28,48 @@ function Copyright(props) {
   );
 }
 
+
+
 // TODO remove, this demo shouldn't need to reset the theme.
 
 const defaultTheme = createTheme();
-
 export default function SignUp() {
+  const navigate = useNavigate();
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
+    
+    
+    let config = {
+      method: 'post',
+      url: 'http://localhost:3050/signup',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      data: data,
+    };
+
+    axios
+      .request(config)
+      .then((response) => {
+        console.log(response.data);
+        if (response.data.userType === 'student'){
+          navigate('/student');
+          console.log( `I'm a student`);
+        }
+        else {
+          console.log('Cannot navigate')
+        }
+      }).catch((error) => {
+        console.log('Error is:' + error)
+      })
+    
     console.log({
+      firstName: data.get('firstName'),
+      lastName: data.get('lastName'),
       email: data.get('email'),
       password: data.get('password'),
+      userType: data.get('userType')
     });
   };
 
@@ -100,6 +133,17 @@ export default function SignUp() {
                   type="password"
                   id="password"
                   autoComplete="new-password"
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  required
+                  fullWidth
+                  name="userType"
+                  label="userType"
+                  type="text"
+                  id="userType"
+                  autoComplete="userType"
                 />
               </Grid>
               <Grid item xs={12}>

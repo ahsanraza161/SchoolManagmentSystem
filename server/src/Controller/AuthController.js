@@ -2,14 +2,15 @@ import authModel from '../DB/Model/AuthModel.js';
 import jwt from 'jsonwebtoken';
 const createUser = async (req, res) => {
   try {
-    const { email, password, phone, name ,userType} = req.body;
+    const { email, password, phone, firstName,lastName ,userType} = req.body;
     const existingUser = await authModel.findOne({ email });
 
     if (existingUser) {
       return res.send('User Already Exists');
     }
     const createNewUser = await authModel.create({
-      name,
+      firstName,
+      lastName,
       email,
       phone,
       password,
