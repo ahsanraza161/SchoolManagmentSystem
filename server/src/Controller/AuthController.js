@@ -1,5 +1,6 @@
 import authModel from '../DB/Model/AuthModel.js';
 import jwt from 'jsonwebtoken';
+import bcrypt from 'bcryptjs'
 const createUser = async (req, res) => {
   try {
     const { email, password, phone, firstName,lastName ,userType} = req.body;
@@ -8,14 +9,26 @@ const createUser = async (req, res) => {
     if (existingUser) {
       return res.send('User Already Exists');
     }
+
+
+    const salt = await bcrypt.genSalt(10);
+    const secPass = await bcrypt.hash(req.body.password, salt)
+    // res.send(secPass)
+
+
+
     const createNewUser = await authModel.create({
-      firstName,
-      lastName,
-      email,
-      phone,
-      password,
-      userType
+      firstName : req.body.firstName,
+      lastName: req.body.lastName,
+      email: req.body.email,
+      phone: req.body.phone,
+      password: secPass,
+      userType: req.body.userType
     });
+
+
+
+    
 
     const CreatedUser = await authModel
       .findById(createNewUser._id)
