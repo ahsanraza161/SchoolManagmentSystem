@@ -13,12 +13,20 @@ const AuthSchema = mongoose.Schema(
         type: String,
         required:true,
     },
-    name:{
+    firstName:{
         type: String,
         required:true,
     },
+    lastName: {
+        type: String,
+        required: true,
+    },
     phone:{
         type:String
+    },
+    userType:{
+        type:String,
+        enum:["admin" , "teacher" , "student"]
     }
 },
 {
