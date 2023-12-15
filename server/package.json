@@ -5,9 +5,11 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "react-start": "react-scripts start",
-    "nodemon": "nodemon server.js",
-    "dev": "concurrently \"npm run react-start\" \"npm run nodemon\""
+    "start": "node server.js",
+    "server": "nodemon src/app.js",
+    "client": "npm start --prefix client",
+    "clientInstall": "npm install --prefix client",
+    "dev": "concurrently \"npm run client\" \"npm run server\""
   },
   "keywords": [],
   "author": "",
