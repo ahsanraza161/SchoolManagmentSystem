@@ -1,0 +1,25 @@
+footer {
+  padding: 70px 0;
+}
+.social-icons ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+.social-icons ul li a {
+  color: #0053c8;
+  font-size: 24px;
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 3px 3px 6px 2px #efeaea;
+  transition: all 0.3s ease-in-out;
+}
+.social-icons ul li a:hover {
+  background-color: #0053c8;
+  color: #fff;
+}

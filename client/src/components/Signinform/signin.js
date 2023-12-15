@@ -15,6 +15,8 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
+
+
 function Copyright(props) {
   return (
     <Typography
@@ -46,6 +48,7 @@ export default function SignIn() {
 
     let config = {
       method: 'post',
+      
       maxBodyLength: Infinity,
       url: 'http://localhost:3050/login',
       headers: {
@@ -57,6 +60,12 @@ export default function SignIn() {
     axios
       .request(config)
       .then((response) => {
+<<<<<<< HEAD
+        console.log(response.data);
+        if (response.data.status === true) {
+          navigate('/student');
+        } else if (response.data.msg === 'Wrong Password') {
+=======
         //console.log(response.data);
         //console.log(response.data.data.userType);
         if (response.data.status === true && response.data.data.userType === 'student') {
@@ -74,6 +83,7 @@ export default function SignIn() {
         }  
         else if (response.data.msg == 'Wrong Password') {
           console.log("wrong password")
+>>>>>>> backend-dev
         }
       })
       .catch((error) => {

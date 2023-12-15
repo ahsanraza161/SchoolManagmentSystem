@@ -1,6 +1,10 @@
 import authModel from '../DB/Model/AuthModel.js';
 import jwt from 'jsonwebtoken';
+<<<<<<< HEAD
+import bcrypt from 'bcryptjs';
+=======
 import bcrypt from 'bcryptjs'
+>>>>>>> backend-dev
 const createUser = async (req, res) => {
   try {
     const { email, password, phone, firstName,lastName ,userType} = req.body;
@@ -26,10 +30,15 @@ const createUser = async (req, res) => {
       userType: req.body.userType
     });
 
+<<<<<<< HEAD
+    const salt = await bcrypt.genSalt(10);
+    createNewUser.password = await bcrypt.hash(password, salt);
+=======
 
 
     
 
+>>>>>>> backend-dev
     const CreatedUser = await authModel
       .findById(createNewUser._id)
       .select('-password');
