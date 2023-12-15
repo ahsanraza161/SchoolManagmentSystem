@@ -14,6 +14,7 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import toast, { Toaster } from 'react-hot-toast';
 
 function Copyright(props) {
   return (
@@ -35,6 +36,10 @@ function Copyright(props) {
 const defaultTheme = createTheme();
 export default function SignUp() {
   const navigate = useNavigate();
+
+  const notify = () => toast.error('This is an error!');
+  
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -54,11 +59,15 @@ export default function SignUp() {
       .then((response) => {
         console.log(response.data);
         if (response.data.userType === 'student'){
-          navigate('/student');
+          toast.success('Successfully created!');   
+          setTimeout(() => {
+            navigate('/student');
           console.log( `I'm a student`);
+          }, 2000) 
         }
         else {
           console.log('Cannot navigate')
+          notify()
         }
       }).catch((error) => {
         console.log('Error is:' + error)
@@ -172,6 +181,7 @@ export default function SignUp() {
         </Box>
         <Copyright sx={{ mt: 5 }} />
       </Container>
+      <Toaster/>
     </ThemeProvider>
   );
 }

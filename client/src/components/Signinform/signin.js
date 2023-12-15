@@ -60,8 +60,10 @@ export default function SignIn() {
         //console.log(response.data);
         //console.log(response.data.data.userType);
         if (response.data.status === true && response.data.data.userType === 'student') {
+          console.log(response.data.data);
           navigate('/student');
           console.log(`I'm a Student`);
+          window.localStorage.setItem('isLoggedIn' , true);
         }
        else if (response.data.status === true && response.data.data.userType === "admin") {
           navigate('/admin');

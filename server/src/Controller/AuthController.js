@@ -53,12 +53,20 @@ const login = async (req, res) => {
       });
     }
 
-    if (existingUser.password !== password) {
+    // Password Compare
+    const Ismatch = bcrypt.compare(password,existingUser.password)
+    if (!Ismatch){
       return res.json({
-        status: false,
-        msg: 'Wrong Password',
-      });
+        status:false,
+        msg:"Wrong Password"
+      })
     }
+    // if (existingUser.password !== password) {
+    //   return res.json({
+    //     status: false,
+    //     msg: 'Wrong Password',
+    //   });
+    // }
 
     return res.json({
       status: true,

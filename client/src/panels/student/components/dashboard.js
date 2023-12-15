@@ -1,11 +1,21 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import StudentImage from '../../../assets/images/Screenshot 2023-12-03 023928.png';
 import '../../../styles/student.css';
+import { useNavigate } from 'react-router-dom';
 
 const Dashboard = () => {
+
+  const navigate = useNavigate();
+  useEffect(() => {
+    let login = localStorage.getItem('isLoggedIn');
+    if(!login){
+      navigate('/signup')
+      console.log('huzaif');
+    }
+  },[])
   return (
     <div>
       <Container fluid>
