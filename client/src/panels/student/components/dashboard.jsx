@@ -32,12 +32,8 @@ function Dashboard(props) {
 
   const drawer = (
     <div>
-      {/* website name and logo */}
       <ListItem disablePadding>
         <ListItemButton>
-          <mainLogo>
-            <img src="" alt="logo" className="logomain" />
-          </mainLogo>
           <ListItemText primary={'SMS'} />
         </ListItemButton>
       </ListItem>
