@@ -53,27 +53,32 @@ export default function SignIn() {
       },
       data: data,
     };
-//
+    //
     axios
       .request(config)
       .then((response) => {
-        //console.log(response.data);
+        console.log(response.data);
         //console.log(response.data.data.userType);
-        if (response.data.status === true && response.data.data.userType === 'student') {
+        if (
+          response.data.status === true &&
+          response.data.data.userType === 'student'
+        ) {
           navigate('/student');
           console.log(`I'm a Student`);
-        }
-       else if (response.data.status === true && response.data.data.userType === "admin") {
+        } else if (
+          response.data.status === true &&
+          response.data.data.userType === 'admin'
+        ) {
           navigate('/admin');
-          console.log("I am admin")
-        } 
-        else if (response.data.status === true && response.data.data.userType === "teacher") 
-        {
-         navigate('/admin');
-       console.log("I am teacher")
-        }  
-        else if (response.data.msg == 'Wrong Password') {
-          console.log("wrong password")
+          console.log('I am admin');
+        } else if (
+          response.data.status === true &&
+          response.data.data.userType === 'teacher'
+        ) {
+          navigate('/admin');
+          console.log('I am teacher');
+        } else if (response.data.msg == 'Wrong Password') {
+          console.log('wrong password');
         }
       })
       .catch((error) => {
