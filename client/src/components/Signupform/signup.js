@@ -42,7 +42,7 @@ export default function SignUp() {
     
     let config = {
       method: 'post',
-      url: 'http://localhost:3050/signup',
+      url: 'https://smsbackend-ten.vercel.app/',
       headers: {
         'Content-Type': 'application/json',
       },

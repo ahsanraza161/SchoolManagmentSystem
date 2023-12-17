@@ -47,7 +47,7 @@ export default function SignIn() {
     let config = {
       method: 'post',
       maxBodyLength: Infinity,
-      url: 'http://localhost:3050/login',
+      url: 'https://smsbackend-ten.vercel.app/',
       headers: {
         'Content-Type': 'application/json',
       },
