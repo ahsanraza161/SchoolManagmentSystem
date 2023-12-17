@@ -42,7 +42,7 @@ export default function SignUp() {
     
     let config = {
       method: 'post',
-      url: 'https://smsbackend-ten.vercel.app',
+      url: 'https://c312-39-50-198-81.ngrok-free.app',
       headers: {
         'Content-Type': 'application/json',
       },

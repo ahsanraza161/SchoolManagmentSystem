@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -14,60 +14,79 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import toast, { Toaster } from 'react-hot-toast';
+
+
+function Copyright(props) {
+  return (
+    <Typography
+      variant="body2"
+      color="text.secondary"
+      align="center"
+      {...props}
+    >
+      {'Copyright © '}
+      <Link color="inherit" href="https://mui.com/">
+        SMS
+      </Link>{' '}
+      {new Date().getFullYear()}
+      {'.'}
+    </Typography>
+  );
+}
+
+// TODO remove, this demo shouldn't need to reset the theme.
 
 const defaultTheme = createTheme();
 
 export default function SignIn() {
   const navigate = useNavigate();
-  const [formData, setFormData] = useState({
-    email: '',
-    password: '',
-  });
 
-  const handleChange = (event) => {
-    setFormData({
-      ...formData,
-      [event.target.name]: event.target.value,
-    });
-  };
-
-  const handleSubmit = async (event) => {
+  const notify = () => toast.error('This is an error!');
+  // const alert = useAlert();
+  const handleSubmit = (event) => {
     event.preventDefault();
+    const data = new FormData(event.currentTarget);
 
-    try {
-      const response = await axios.post('https://smsbackend-ten.vercel.app', formData, {
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
-
-      console.log(response.data);
-
-      if (response.data.status === true) {
-        switch (response.data.data.userType) {
-          case 'student':
-            navigate('/student');
-            console.log('I am a Student');
-            break;
-          case 'admin':
-            navigate('/admin');
-            console.log('I am an admin');
-            break;
-          case 'teacher':
-            navigate('/teacher');
-            console.log('I am a teacher');
-            break;
-          default:
-            console.log('Unknown user type');
+    let config = {
+      method: 'post',
+      maxBodyLength: Infinity,
+      url: 'https://c312-39-50-198-81.ngrok-free.app',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      data: data,
+    };
+//
+    axios
+      .request(config)
+      .then((response) => {
+        //console.log(response.data);
+        //console.log(response.data.data.userType);
+        if (response.data.status === true && response.data.data.userType === 'student') {
+          // console.log(response.data); 
+          toast.success('Successfully created!');
+          setTimeout (() => {navigate('/student');
+          console.log(`I'm a Student`);}, 1000)
+          // window.localStorage.setItem('isLoggedIn' , true);
         }
-      } else if (response.data.msg === 'Wrong Password') {
-        console.log('Wrong password');
-      }
-    } catch (error) {
-      console.error('Error:', error);
-      // Handle error gracefully, e.g., show an error message to the user
-    }
-  };
+       else if (response.data.status === true && response.data.data.userType === "admin") {
+          navigate('/admin');
+          console.log("I am admin")
+        } 
+        else if (response.data.status === true && response.data.data.userType === "teacher") 
+        {
+         navigate('/admin');
+       console.log("I am teacher")
+        }  
+        else if (response.data.msg === 'Wrong Password') {
+          console.log("wrong password")
+          notify();
+        }
+      })
+      .catch((error) => {
+        console.log('Error is: ', error);
+      });
   };
 
   return (
@@ -142,5 +161,7 @@ export default function SignIn() {
         </Box>
         <Copyright sx={{ mt: 8, mb: 4 }} />
       </Container>
-    </ThemeProvider>
+      <Toaster />
+    </ThemeProvider>   
   );
+}
