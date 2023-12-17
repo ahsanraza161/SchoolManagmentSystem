@@ -15,8 +15,6 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-
-
 function Copyright(props) {
   return (
     <Typography
@@ -27,7 +25,7 @@ function Copyright(props) {
     >
       {'Copyright © '}
       <Link color="inherit" href="https://mui.com/">
-        Your Website
+        SMS
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -37,7 +35,24 @@ function Copyright(props) {
 
 // TODO remove, this demo shouldn't need to reset the theme.
 
-const defaultTheme = createTheme();
+const darkTheme = createTheme({
+  palette: {
+    mode: 'dark',
+    primary: {
+      main: '#1A237E',
+    },
+    secondary: {
+      main: '#4CAF50',
+    },
+    background: {
+      paper: '#212B34',
+    },
+    text: {
+      primary: '#F5F5F5',
+    },
+  },
+});
+
 
 export default function SignIn() {
   const navigate = useNavigate();
@@ -48,7 +63,6 @@ export default function SignIn() {
 
     let config = {
       method: 'post',
-      
       maxBodyLength: Infinity,
       url: 'http://localhost:3050/login',
       headers: {
@@ -60,12 +74,6 @@ export default function SignIn() {
     axios
       .request(config)
       .then((response) => {
-<<<<<<< HEAD
-        console.log(response.data);
-        if (response.data.status === true) {
-          navigate('/student');
-        } else if (response.data.msg === 'Wrong Password') {
-=======
         //console.log(response.data);
         //console.log(response.data.data.userType);
         if (response.data.status === true && response.data.data.userType === 'student') {
@@ -83,7 +91,6 @@ export default function SignIn() {
         }  
         else if (response.data.msg == 'Wrong Password') {
           console.log("wrong password")
->>>>>>> backend-dev
         }
       })
       .catch((error) => {
@@ -92,13 +99,13 @@ export default function SignIn() {
   };
 
   return (
-    <ThemeProvider theme={defaultTheme}>
+    <ThemeProvider theme={darkTheme}>
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <Box
           sx={{
             marginTop: 8,
-            display: 'flex',
+            display: 'block',
             flexDirection: 'column',
             alignItems: 'center',
           }}
@@ -130,7 +137,7 @@ export default function SignIn() {
               required
               fullWidth
               name="password"
-              label="Password"
+              label="jdq;lkj"
               type="password"
               id="password"
               autoComplete="current-password"
