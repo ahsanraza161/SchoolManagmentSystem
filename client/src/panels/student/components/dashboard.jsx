@@ -52,41 +52,6 @@ function Dashboard(props) {
             <ListItemText primary={'Dashboard'} />
           </ListItemButton>
         </ListItem>
-        <ListItem disablePadding>
-          <ListItemButton>
-            <ListItemIcon>
-              <TocIcon />
-            </ListItemIcon>
-            <ListItemText primary={'Content Moderation'} />
-          </ListItemButton>
-        </ListItem>
-      </List>
-      <Divider />
-      <List>
-        <ListItem disablePadding>
-          <ListItemButton>
-            <ListItemIcon>
-              <GroupIcon />
-            </ListItemIcon>
-            <ListItemText primary={'User Management'} />
-          </ListItemButton>
-        </ListItem>
-        <ListItem disablePadding>
-          <ListItemButton>
-            <ListItemIcon>
-              <EditNotificationsIcon />
-            </ListItemIcon>
-            <ListItemText primary={'Notification Management'} />
-          </ListItemButton>
-        </ListItem>
-        <ListItem disablePadding>
-          <ListItemButton>
-            <ListItemIcon>
-              <SummarizeIcon />
-            </ListItemIcon>
-            <ListItemText primary={'Report Management'} />
-          </ListItemButton>
-        </ListItem>
       </List>
     </div>
   );

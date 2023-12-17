@@ -2,7 +2,7 @@ import React from 'react'
 import Dashboard from './components/dashboard'
 import '../../styles/admin.css'
 
-function Admin() {
+function Student() {
   return (
     <div>
       <Dashboard/>
@@ -10,4 +10,4 @@ function Admin() {
   )
 }
 
-export default Admin
+export default Student

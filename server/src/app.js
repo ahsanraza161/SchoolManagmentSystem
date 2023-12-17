@@ -13,6 +13,9 @@ app.use(
   })
 );
 
+app.get('/', (req, res) => {
+  res.json('Hello');
+});
 var corsOptions = {
   origin: '*',
 };
