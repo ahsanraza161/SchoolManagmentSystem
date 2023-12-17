@@ -1,12 +1,10 @@
 import mongoose from "mongoose";
 
-import {config}  from "dotenv"
-config()
 
 export const connectDB = async ()=>{
 
     try{
-         mongoose.connect(process.env.dbURL)
+         mongoose.connect("mongodb+srv://mhuzaif523:huzaif@contactmanagementapp.wgccmsf.mongodb.net/?retryWrites=true&w=majority")
  console.log("MongoDB connected")
     }
     catch(err){
