@@ -14,6 +14,8 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import toast, { Toaster } from 'react-hot-toast';
+
 
 function Copyright(props) {
   return (
@@ -39,6 +41,8 @@ const defaultTheme = createTheme();
 
 export default function SignIn() {
   const navigate = useNavigate();
+
+  const notify = () => toast.error('This is an error!');
   // const alert = useAlert();
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -60,10 +64,11 @@ export default function SignIn() {
         //console.log(response.data);
         //console.log(response.data.data.userType);
         if (response.data.status === true && response.data.data.userType === 'student') {
-          console.log(response.data.data);
-          navigate('/student');
-          console.log(`I'm a Student`);
-          window.localStorage.setItem('isLoggedIn' , true);
+          // console.log(response.data); 
+          toast.success('Successfully created!');
+          setTimeout (() => {navigate('/student');
+          console.log(`I'm a Student`);}, 1000)
+          // window.localStorage.setItem('isLoggedIn' , true);
         }
        else if (response.data.status === true && response.data.data.userType === "admin") {
           navigate('/admin');
@@ -74,8 +79,9 @@ export default function SignIn() {
          navigate('/admin');
        console.log("I am teacher")
         }  
-        else if (response.data.msg == 'Wrong Password') {
+        else if (response.data.msg === 'Wrong Password') {
           console.log("wrong password")
+          notify();
         }
       })
       .catch((error) => {
@@ -155,6 +161,7 @@ export default function SignIn() {
         </Box>
         <Copyright sx={{ mt: 8, mb: 4 }} />
       </Container>
-    </ThemeProvider>
+      <Toaster />
+    </ThemeProvider>   
   );
 }

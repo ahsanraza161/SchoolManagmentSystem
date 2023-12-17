@@ -4,7 +4,6 @@ const AuthSchema = mongoose.Schema(
 {
     email:{
         type: String,
-
         required:true,
         trim:true,
         unique:true 
@@ -19,7 +18,7 @@ const AuthSchema = mongoose.Schema(
     },
     lastName: {
         type: String,
-        required: true,
+        required: false,
     },
     phone:{
         type:String
@@ -27,6 +26,22 @@ const AuthSchema = mongoose.Schema(
     userType:{
         type:String,
         enum:["admin" , "teacher" , "student"]
+    },
+    fatherName:{
+        type:String,
+        required:true
+    },
+    age:{
+        type:Number,
+        required:true
+    },
+    grade:{
+        type:Number,
+        required:true
+    },
+    section:{
+        type:String,
+        required:true
     }
 },
 {

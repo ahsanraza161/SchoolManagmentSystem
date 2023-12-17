@@ -4,21 +4,18 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import StudentImage from '../../../assets/images/Screenshot 2023-12-03 023928.png';
 import '../../../styles/student.css';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate ,useLocation} from 'react-router-dom';
 
 const Dashboard = () => {
+  console.log("DAAASHBOARDDD")
 
+  const {state} = useLocation();
+  const {Userdata}= state
+  console.log(Userdata)
   const navigate = useNavigate();
-  useEffect(() => {
-    let login = localStorage.getItem('isLoggedIn');
-    if(!login){
-      navigate('/signup')
-      console.log('huzaif');
-    }
-  },[])
   return (
     <div>
-      <Container fluid>
+      <Container fluid >
         <section className="cards">
           <Row>
             <Col lg={3}>
@@ -71,19 +68,19 @@ const Dashboard = () => {
                   <Col lg={8}>
                     <ul>
                       <li>
-                        <strong>Name:</strong> Muhammad Owais
+                        <strong>Name:</strong> {Userdata.firstName +" "+Userdata.lastName}
                       </li>
                       <li>
-                        <strong>Father Name:</strong> Kazi Rahman
+                        <strong>Father Name:</strong> {Userdata.fatherName}
                       </li>
                       <li>
-                        <strong>Age:</strong> 18
+                        <strong>Age:</strong> {Userdata.age}
                       </li>
                       <li>
-                        <strong>Class:</strong> 2
+                        <strong>Class:</strong> {Userdata.grade}
                       </li>
                       <li>
-                        <strong>Section:</strong> A
+                        <strong>Section:</strong> {Userdata.section}
                       </li>
                     </ul>
                   </Col>

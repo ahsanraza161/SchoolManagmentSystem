@@ -43,7 +43,8 @@ export default function SignUp() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    
+    data.append("userType","student")
+    console.log(data)
     
     let config = {
       method: 'post',
@@ -51,19 +52,21 @@ export default function SignUp() {
       headers: {
         'Content-Type': 'application/json',
       },
-      data: data,
+      data: data
     };
+
+
 
     axios
       .request(config)
       .then((response) => {
-        console.log(response.data);
-        if (response.data.userType === 'student'){
+        console.log("RD",response.data);
+        if (response.data.data.userType === 'student'){
           toast.success('Successfully created!');   
           setTimeout(() => {
-            navigate('/student');
+            navigate('/student' ,  { state: { Userdata:response.data.data } });
           console.log( `I'm a student`);
-          }, 2000) 
+          }, 1000) 
         }
         else {
           console.log('Cannot navigate')
@@ -123,6 +126,46 @@ export default function SignUp() {
                   autoComplete="family-name"
                 />
               </Grid>
+              <Grid item xs={12} >
+                <TextField
+                  required
+                  fullWidth
+                  id="fatherName"
+                  label="fatherName"
+                  name="fatherName"
+                  
+                />
+              </Grid>
+              <Grid item xs={12} >
+                <TextField
+                  required
+                  fullWidth
+                  id="age"
+                  label="age"
+                  name="age"
+                  autoComplete="family-name"
+                />
+              </Grid>
+              <Grid item xs={12} >
+                <TextField
+                  required
+                  fullWidth
+                  id="grade"
+                  label="grade"
+                  name="grade"
+                  autoComplete="family-name"
+                />
+              </Grid>
+              <Grid item xs={12} >
+                <TextField
+                  required
+                  fullWidth
+                  id="section"
+                  label="section"
+                  name="section"
+                  autoComplete="family-name"
+                />
+              </Grid>
               <Grid item xs={12}>
                 <TextField
                   required
@@ -142,17 +185,6 @@ export default function SignUp() {
                   type="password"
                   id="password"
                   autoComplete="new-password"
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  required
-                  fullWidth
-                  name="userType"
-                  label="userType"
-                  type="text"
-                  id="userType"
-                  autoComplete="userType"
                 />
               </Grid>
               <Grid item xs={12}>
