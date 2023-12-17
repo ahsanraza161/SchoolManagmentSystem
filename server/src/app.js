@@ -5,13 +5,13 @@ import bodyParser from 'body-parser';
 import { connectDB } from './DB/index.js';
 import { AuthRouters } from './Router/AuthRouters.js';
 let app = express();
-app.use(cors(
-  {
-      origin: ["https://smsfrontend.vercel.app"],
-      methods: ["POST", "GET"],
-      credentials: true
-  }
-));
+app.use(
+  cors({
+    origin: ['https://smsfrontend-nine.vercel.app'],
+    methods: ['POST', 'GET'],
+    credentials: true,
+  })
+);
 
 var corsOptions = {
   origin: '*',
