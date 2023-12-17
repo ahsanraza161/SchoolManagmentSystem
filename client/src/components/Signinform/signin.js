@@ -35,7 +35,7 @@ export default function SignIn() {
     event.preventDefault();
 
     try {
-      const response = await axios.post('https://smsbackend-ten.vercel.app/', formData, {
+      const response = await axios.post('https://smsbackend-ten.vercel.app', formData, {
         headers: {
           'Content-Type': 'application/json',
         },
