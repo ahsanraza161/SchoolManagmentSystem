@@ -17,11 +17,11 @@ import { useResponsive } from '../../hooks/use-responsive';
 
 import { account } from '../../_mock/account';
 
-import Logo from '../../components/logo';
 import Scrollbar from '../../components/scrollbar';
 
 import { NAV } from './config-layout';
 import navConfig from './config-navigation';
+
 // ----------------------------------------------------------------------
 
 export default function Nav({ openNav, onCloseNav }) {
@@ -74,9 +74,26 @@ export default function Nav({ openNav, onCloseNav }) {
       <Stack alignItems="center" spacing={3} sx={{ pt: 5, borderRadius: 2, position: 'relative' }}>
         <Box
           component="img"
-          src={Avatar}
+          src="/assets/illustrations/illustration_avatar.png"
           sx={{ width: 100, position: 'absolute', top: -50 }}
         />
+
+        <Box sx={{ textAlign: 'center' }}>
+          <Typography variant="h6">Get more?</Typography>
+
+          <Typography variant="body2" sx={{ color: 'text.secondary', mt: 1 }}>
+            From only $69
+          </Typography>
+        </Box>
+
+        <Button
+          href="https://material-ui.com/store/items/minimal-dashboard/"
+          target="_blank"
+          variant="contained"
+          color="inherit"
+        >
+          Upgrade to Pro
+        </Button>
       </Stack>
     </Box>
   );
@@ -92,7 +109,6 @@ export default function Nav({ openNav, onCloseNav }) {
         },
       }}
     >
-      <Logo sx={{ mt: 3, ml: 4 }} />
 
       {renderAccount}
 

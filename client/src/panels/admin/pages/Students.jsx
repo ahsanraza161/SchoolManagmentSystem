@@ -1,11 +1,11 @@
-import { BlogView } from '../sections/blog/view';
+import { UserView } from '../sections/user/view';
 
 // ----------------------------------------------------------------------
 
-export default function BlogPage() {
+export default function Students() {
   return (
     <>
-      <BlogView />
+    <UserView />
     </>
   );
 }
