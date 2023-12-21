@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f0f1f3;
+}
+img {
+  width: 100%;
+  display: block;
+}
+a {
+  text-decoration: none;
+  display: inline-block;
+}
+ul,
+ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.exam-info {
+  margin: 10px 0;
+}
+.exam-info ul {
+  display: flex;
+  gap: 30px;
+}
+.student-card ul li {
+  padding: 10px 0;
+  font-size: 14px;
+}
+.student-card ul li strong {
+  margin-right: 10px;
+}
+.student-card,
+.courses-card,
+.exam-card,
+.notice-card {
+  padding: 25px 20px;
+  margin: 10px 0;
+  border: 1px solid #e7e7e7;
+}
+h2 {
+  font-size: 26px;
+  border-bottom: 1px solid #dfcece;
+  padding-bottom: 10px;
+}
+.student-info {
+  padding: 15px 0px 0 0;
+}
+.courses-card ul li {
+  padding: 10px 0;
+  font-size: 14px;
+}
+.exam-info ul li {
+  width: 16%;
+  padding: 5px 0;
+  font-size: 14px;
+}
+.notice-info h5 {
+  margin: 8px 0;
+  font-size: 16px;
+}
+.notice-info p {
+  font-size: 14px;
+  letter-spacing: 1px;
+  margin-bottom: 15px;
+}
+.courses-card ul li strong {
+  margin-right: 10px;
+}
+.specs {
+  background-color: #fff;
+  color: #000;
+  padding: 25px 30px;
+  border-radius: 0px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;  align-items: center;
+  display: flex;
+}
+.student-icon i {
+  font-size: 30px;
+  
+}
+.info-icon {
+  width: 60%;
+  text-align: center;
+  border-right: 1px solid #fff;
+  position: relative;
+}
+.student-txt {
+  width: 40%;
+  text-align: center;
+  font-size: 30px;
+}
+.cards {
+  padding: 50px 0;
+}
+.student,.exams,.documents{
+  display: flex;
+}
+.student-icon h5 {
+  font-size: 14px;
+  padding-top: 15px;
+}
+
+.info-icon::before{
+  position: absolute;
+  content: "";
+  top: 0;
+  right: 0;
+  background-color: #efefef;
+  width: 2px;
+  height: 100%;
+
+}

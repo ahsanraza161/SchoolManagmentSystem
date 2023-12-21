@@ -60,7 +60,7 @@ export default function SignUp() {
     axios
       .request(config)
       .then((response) => {
-        console.log("RD",response.data);
+        console.log("RD",response.data.data.userType);
         if (response.data.data.userType === 'student'){
           toast.success('Successfully created!');   
           setTimeout(() => {

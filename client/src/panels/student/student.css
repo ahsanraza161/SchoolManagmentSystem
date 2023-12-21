@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Poppins', sans-serif;
+}
+img {
+  width: 100%;
+  display: block;
+}
+a {
+  text-decoration: none;
+  display: inline-block;
+}
+ul,
+ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.exam-info {
+  margin: 10px 0;
+}
+.exam-info ul {
+  display: flex;
+  gap: 30px;
+}
+.student-card ul li {
+  padding: 10px 0;
+  font-size: 14px;
+}
+.student-card ul li strong {
+  margin-right: 10px;
+}
+.student-card,
+.courses-card,
+.exam-card,
+.notice-card {
+  padding: 25px 20px;
+  margin: 10px 0;
+  border: 1px solid #e7e7e7;
+}
+h2 {
+  font-size: 26px;
+  border-bottom: 1px solid #dfcece;
+  padding-bottom: 10px;
+}
+.student-info {
+  padding: 15px 0px 0 0;
+}
+.courses-card ul li {
+  padding: 10px 0;
+  font-size: 14px;
+}
+.exam-info ul li {
+  width: 16%;
+  padding: 5px 0;
+  font-size: 14px;
+}
+.notice-info h5 {
+  margin: 8px 0;
+  font-size: 16px;
+}
+.notice-info p {
+  font-size: 14px;
+  letter-spacing: 1px;
+  margin-bottom: 15px;
+}
+.courses-card ul li strong {
+  margin-right: 10px;
+}
+.info {
+  background-image: linear-gradient(
+    to right,
+    #5aff76,
+    #69ea5b,
+    #72d541,
+    #76c026,
+    #77ac00
+  );
+  color: #fff;
+  padding: 25px 30px;
+  border-radius: 15px;
+  align-items: center;
+  display: flex;
+}
+.info.exams {
+  background-image: linear-gradient(
+    to right,
+    #ff4e4e,
+    #e93f41,
+    #d42f34,
+    #bf1d27,
+    #aa041b
+  );
+}
+.info.events {
+  background-image: linear-gradient(
+    to right,
+    #7699f9,
+    #567cf5,
+    #385ded,
+    #1c3be3,
+    #0901d4
+  );
+}
+.info.documents {
+  background-image: linear-gradient(
+    to right,
+    #fbeb48,
+    #eee63b,
+    #e1e12d,
+    #d3dd1c,
+    #c5d800
+  );
+}
+.info-icon i {
+  font-size: 30px;
+}
+.info-icon {
+  width: 60%;
+  text-align: center;
+  border-right: 1px solid #fff;
+}
+.info-txt {
+  width: 40%;
+  text-align: center;
+  font-size: 30px;
+}
+.cards {
+  padding: 50px 0;
+}
+.info-icon h5 {
+  font-size: 14px;
+  padding-top: 15px;
+}

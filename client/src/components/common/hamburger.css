@@ -1,0 +1,28 @@
+.sidebar{
+    position: fixed;
+    top: 0;
+    width: 20%;
+    height: 100%;
+    z-index: 4;
+    transition: all .7s;
+    background-color: #002a54;
+    color: #fff;
+}
+.sidebar ul{
+    margin-top: 100px;
+    text-align: center;
+}
+.sidebar ul li{
+    margin-top: 0px;
+    padding: 10px 0;
+    border-top: 1px solid #fff;
+    /* border-bottom: 1px solid #fff; */
+}
+.sidebar ul li ul{
+    display: none;
+}
+.menu{
+    position: relative;
+    z-index: 5;
+    color: #fff;
+}
